@@ -3,25 +3,26 @@ Contributors: adegans
 Tags: users, delete, delete users, user, accounts, delete accounts, register, user registration, registration, protection, woocommerce, bbpress
 Donate link: https://www.arnan.me/donate.html
 Requires at least: 4.9
-Tested up to: 6.4.3
-Requires PHP: 5.7
-Stable tag: 1.0.6
+Tested up to: 6.6
+Requires PHP: 7.4
+Stable tag: 1.0.7
 License: GPLv3
 
-Delete any useless newly registered accounts on a daily schedule.
+If an account is registered and nothing is done with it the account is deleted after two weeks.
 
 == Description ==
-
-If you have a lot of people (or bots) registering on your site that end up doing nothing with their account they may as well be deleted.
+If you have a lot of people (or bots) registering on your site that end up doing nothing with their account they may as well be deleted. \
 **AJdG User Cleaner** works on a daily schedule to check and delete unused accounts that registered 2 weeks before. This means that the new registrant has 2 weeks to do something with their account. Doing something means; post a comment, create a page or create a blogpost.
 
-Additionally **AJdG User Cleaner** supports WooCommerce and bbPress.
+Additionally **AJdG User Cleaner** supports WooCommerce and bbPress. \
 If the user creates an order in WooCommerce or a topic or reply in bbPress the account is not deleted.
 If either WooCommerce or bbPress is not active those will not count towards deleting the users.
 
-This works very simple, **AJdG User Cleaner** checks applicable accounts for the required activities.
-The simplicity of the plugin also means that no warning or notification is given when deleting accounts.
+This works very simple, **AJdG User Cleaner** checks applicable accounts for the required activities. \
+The simplicity of the plugin also means that no warning or notification is given when deleting accounts. \
 Accounts are not placed in a trash bin. Deleting of accounts is permanent.
+
+The Administrator, Editor and Author roles are excempt from deletion.
 
 This plugin has no settings and works quietly in the background.
 
@@ -44,24 +45,25 @@ This plugin has no settings and works quietly in the background.
 
 = I have other activities not covered by this plugin =
 **AJdG User Cleaner** does not check for other activities. So the user may be deleted.
+If you feel your use-case should be included let me know.
 
 = How do I know the plugin works =
 **AJdG User Cleaner** sends a email notification when the cycle is finished and users have been deleted.
 Alternatively you can check your Users dashboard, if a bunch went 'missing'... Well, there you go.
 
 = Will this delete administrator accounts? =
-**AJdG User Cleaner** will never delete Administrator or Editor accounts.
+**AJdG User Cleaner** will never delete Administrator, Editor or Author accounts.
 All other accounts can be deleted.
 
 = Can I recover deleted accounts? =
-No, there is no trash bin or undo button.
+No, there is no trashbin or undo button.
 The deleted user can of-course register a new account.
 
 = Will this delete all user data? =
 All associated meta data will be deleted using the official wp_delete_user() function.
 
 = Where are the settings? =
-This plugin has no settings and works silently in the background.
+This plugin has no settings.
 
 = Will this overload the site? =
 Generally no. However, if you have many accounts, say 3000 or more, the first cycle of deletions may include many accounts.
@@ -73,13 +75,21 @@ Simply de-activate and re-activate the plugin to start over.
 Remember, this counts as a first run, so the first cycle may take a few seconds.
 
 = I need help with this plugin =
-You can ask your questions on my [support forum](https://ajdg.solutions/forums/forum/user-cleaner/?mtm_campaign=usercleaner).
+You can ask your questions on my [support forum](https://ajdg.solutions/forums/?mtm_campaign=ajdg_usercleaner).
 
 = This is cool, do you have more plugins? =
-Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/?mtm_campaign=usercleaner)
+Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/?mtm_campaign=ajdg_usercleaner)
 
 
 == Changelog ==
+
+= 1.0.7 - 6 July, 2024 =
+* Author accounts are now also excempt from deletion
+* Minor code tweaks
+* Tested to work with WordPress 6.6
+* Tested to work with ClassicPress 2.1.1
+* Updated support links
+* Updated readme.txt
 
 = 1.0.6 - 31 January, 2023 =
 * Tested to work with WordPress 6.1.1

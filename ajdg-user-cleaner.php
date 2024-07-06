@@ -6,13 +6,13 @@ Author: Arnan de Gans
 Author URI: https://www.arnan.me/?mtm_campaign=usercleaner
 Description: Delete unused accounts. If an account is registered and nothing is done with it the account is deleted after two weeks. This plugin has no settings.
 Text Domain: ajdg-user-cleaner
-Version: 1.0.6
+Version: 1.0.7
 License: GPLv3
 */
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2020-2023 Arnan de Gans. All Rights Reserved.
+*  Copyright 2020-2024 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -27,11 +27,10 @@ add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), 'ajdg_userclean
 /*-------------------------------------------------------------
  Name:      ajdg_usercleaner_action_links
  Purpose:	Plugin page link
- Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_usercleaner_action_links($links) {
-	$links['ajdg-usercleaner-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/forums/forum/user-cleaner/?mtm_campaign=usercleaner&mtm_kwd=action-links', 'Support');
-	$links['ajdg-usercleaner-ajdg'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/?mtm_campaign=usercleaner&mtm_kwd=action-links', 'ajdg.solutions');
+	$links['ajdg-usercleaner-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/forums/?mtm_campaign=ajdg_usercleaner', 'Support');
+	$links['ajdg-usercleaner-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/?mtm_campaign=ajdg_usercleaner', 'More plugins');
 
 	return $links;
 }
@@ -39,10 +38,10 @@ function ajdg_usercleaner_action_links($links) {
 /*-------------------------------------------------------------
  Name:      ajdg_usercleaner_activate
  Purpose:	Set the daily routine on activation
- Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_usercleaner_activate() {
 	ajdg_usercleaner();
+
 	if(!wp_next_scheduled('ajdg_usercleaner')) {
 		wp_schedule_event(time(), 'daily', 'ajdg_usercleaner');
 	}
@@ -51,7 +50,6 @@ function ajdg_usercleaner_activate() {
 /*-------------------------------------------------------------
  Name:      ajdg_usercleaner_deactivate
  Purpose:	Clean up after de-activation
- Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_usercleaner_deactivate() {
 	wp_clear_scheduled_hook('ajdg_usercleaner');
@@ -61,20 +59,18 @@ function ajdg_usercleaner_deactivate() {
 /*-------------------------------------------------------------
  Name:      ajdg_usercleaner
  Purpose:	Check and possibly remove users
- Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_usercleaner() {
 	global $wpdb;
 
 	require_once(ABSPATH.'wp-admin/includes/user.php' );
 
-	$timer = time() - 1209600; // Two weeks
-	$timer = date('U', $timer);
+	$two_weeks_ago = time() - 1209600;
 	$deleted = 0;
 
 	// Grab all applicable users
 	$last_user_id = get_option('ajdg_user_cleaner', 1);
-	$all_users = $wpdb->get_col("SELECT `ID` FROM `{$wpdb->prefix}users` WHERE UNIX_TIMESTAMP(`user_registered`) < '{$timer}' AND `ID` > {$last_user_id};");
+	$all_users = $wpdb->get_col("SELECT `ID` FROM `{$wpdb->prefix}users` WHERE UNIX_TIMESTAMP(`user_registered`) < '{$two_weeks_ago}' AND `ID` > {$last_user_id};");
 
 	$do_wc = (function_exists('wc_get_customer_order_count')) ? 'yes' : 'no';
 	$do_bbp = (function_exists('bbp_get_user_topic_count_raw')) ? 'yes' : 'no';
@@ -83,7 +79,7 @@ function ajdg_usercleaner() {
 	foreach($all_users as $user_id) {
 		$user = get_userdata($user_id);
 
-		if(!in_array('administrator', $user->roles, true) AND !in_array('editor', $user->roles, true)) {
+		if(!in_array('administrator', $user->roles, true) AND !in_array('editor', $user->roles, true) AND !in_array('author', $user->roles, true)) {
 			// Has published posts?
 			$posts = count_user_posts($user_id, 'post');
 			// Has published pages?
@@ -113,11 +109,14 @@ function ajdg_usercleaner() {
 	// Notify the website administrator if accounts have been deleted
 	if($deleted > 0) {
 		$notify_email = get_option('admin_email');
+
 		$message = "<p>Hello,</p>";
 		$message .= "<p>{$deleted} accounts were deleted.</p>";
 		$message .= "<p>Have a nice day!<br /><a href=\"https://ajdg.solutions/plugins/\" target=\"_blank\">AJdG Solutions plugins</a></p>";
+
 	    $headers[] = "Content-Type: text/html; charset=UTF-8";
 		$headers[] = "Reply-To: {$notify_email} <{$notify_email}>";
+
 		wp_mail($notify_email, "[AJdG User Cleaner] Accounts deleted!", $message, $headers);
 	}
 
