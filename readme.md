@@ -1,5 +1,7 @@
-# AJdG User Cleaner
-## Delete any useless newly registered accounts on a daily schedule.
+# AJdG User Cleaner for WordPress
+### AJdG User Cleaner for ClassicPress
+
+Delete any useless newly registered accounts on a daily schedule.
 
 View on: [ajdg.solutions](https://ajdg.solutions/product/adrotate-banner-manager/) ~ [WordPres.org](https://wordpress.org/plugins/adrotate/)
 
@@ -16,14 +18,6 @@ The simplicity of the plugin also means that no warning or notification is given
 Accounts are not placed in a trash bin. Deleting of accounts is permanent.
 
 This plugin has no settings and works quietly in the background.
-
-## Features
-* Daily delete unused accounts
-* Check if the user has created a post or page
-* Check if the user has replied to a post (eg. placed a comment)
-* Supports WooCommerce checks if the account has orders
-* Supports bbPress checks if topics and replies are posted by the account
-* Sends an email to the administration email address with how many accounts were deleted that day
 
 ## Installation
 1. Navigate to your WordPress or ClassicPress dashboard.
