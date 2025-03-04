@@ -1,25 +1,25 @@
 === AJdG User Cleaner ===
 Contributors: adegans
-Tags: users, delete, delete users, user, accounts, delete accounts, register, user registration, registration, protection, woocommerce, bbpress
+Tags: users, delete users, accounts, delete accounts, protection
 Donate link: https://www.arnan.me/donate.html
 Requires at least: 4.9
-Tested up to: 6.6
+Tested up to: 6.7.2
 Requires PHP: 7.4
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv3
 
 If an account is registered and nothing is done with it the account is deleted after two weeks.
 
 == Description ==
-If you have a lot of people (or bots) registering on your site that end up doing nothing with their account they may as well be deleted. \
+If you have a lot of people (or bots) registering on your site that end up doing nothing with their account they may as well be deleted.
 **AJdG User Cleaner** works on a daily schedule to check and delete unused accounts that registered 2 weeks before. This means that the new registrant has 2 weeks to do something with their account. Doing something means; post a comment, create a page or create a blogpost.
 
-Additionally **AJdG User Cleaner** supports WooCommerce and bbPress. \
+Additionally **AJdG User Cleaner** supports WooCommerce and bbPress.
 If the user creates an order in WooCommerce or a topic or reply in bbPress the account is not deleted.
 If either WooCommerce or bbPress is not active those will not count towards deleting the users.
 
-This works very simple, **AJdG User Cleaner** checks applicable accounts for the required activities. \
-The simplicity of the plugin also means that no warning or notification is given when deleting accounts. \
+This works very simple, **AJdG User Cleaner** checks applicable accounts for the required activities.
+The simplicity of the plugin also means that no warning or notification is given when deleting accounts.
 Accounts are not placed in a trash bin. Deleting of accounts is permanent.
 
 The Administrator, Editor and Author roles are excempt from deletion.
@@ -82,6 +82,11 @@ Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/?mtm_c
 
 
 == Changelog ==
+
+= 1.0.8 - March 4, 2025 =
+* Tested to work with WordPress 6.7
+* Tested to work with ClassicPress 2.4
+* [update] Action links
 
 = 1.0.7 - 6 July, 2024 =
 * Author accounts are now also excempt from deletion

@@ -1,18 +1,18 @@
 <?php
 /*
 Plugin Name: AJdG User Cleaner
-Plugin URI: https://ajdg.solutions/?mtm_campaign=usercleaner
+Plugin URI: https://ajdg.solutions/product/user-cleaner/
 Author: Arnan de Gans
-Author URI: https://www.arnan.me/?mtm_campaign=usercleaner
+Author URI: https://www.arnan.me/
 Description: Delete unused accounts. If an account is registered and nothing is done with it the account is deleted after two weeks. This plugin has no settings.
 Text Domain: ajdg-user-cleaner
-Version: 1.0.7
+Version: 1.0.8
 License: GPLv3
 */
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2020-2024 Arnan de Gans. All Rights Reserved.
+*  Copyright 2020-2025 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -29,8 +29,8 @@ add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), 'ajdg_userclean
  Purpose:	Plugin page link
 -------------------------------------------------------------*/
 function ajdg_usercleaner_action_links($links) {
-	$links['ajdg-usercleaner-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/forums/?mtm_campaign=ajdg_usercleaner', 'Support');
-	$links['ajdg-usercleaner-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/?mtm_campaign=ajdg_usercleaner', 'More plugins');
+	$links['ajdg-usercleaner-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', 'Support');
+	$links['ajdg-usercleaner-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', 'More plugins');
 
 	return $links;
 }
