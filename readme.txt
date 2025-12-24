@@ -1,12 +1,12 @@
-=== AJdG User Cleaner ===
+=== User Cleaner ===
 Contributors: adegans
-Tags: users, delete users, accounts, delete accounts, protection
-Donate link: https://www.arnan.me/donate.html
-Requires at least: 4.9
-Tested up to: 6.7.2
-Requires PHP: 7.4
-Stable tag: 1.0.8
+Stable tag: 1.1
+Tested up to: 6.9
+Requires PHP: 8.0
+Requires at least: 5.8
 License: GPLv3
+Tags: users, delete users, accounts, delete accounts, protection
+Donate link: https://www.arnan.me/donate/
 
 If an account is registered and nothing is done with it the account is deleted after two weeks.
 
@@ -75,13 +75,17 @@ Simply de-activate and re-activate the plugin to start over.
 Remember, this counts as a first run, so the first cycle may take a few seconds.
 
 = I need help with this plugin =
-You can ask your questions on my [support forum](https://ajdg.solutions/forums/?mtm_campaign=ajdg_usercleaner).
+Check out my [Support system](https://support.ajdg.net/knowledgebase.php)
 
 = This is cool, do you have more plugins? =
-Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/?mtm_campaign=ajdg_usercleaner)
-
+Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/)
 
 == Changelog ==
+
+= 1.1 - January ??, 2026 =
+* Added - Support for updates through GooseUp
+* Added - Meta links
+* Removed - Action links
 
 = 1.0.8 - March 4, 2025 =
 * Tested to work with WordPress 6.7
