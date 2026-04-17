@@ -6,6 +6,7 @@ Delete any useless newly registered accounts on a daily schedule.
 View on: [ajdg.solutions](https://ajdg.solutions/product/adrotate-banner-manager/) ~ [WordPres.org](https://wordpress.org/plugins/adrotate/)
 
 ## Description
+
 If you have a lot of people (or bots) registering on your site that end up doing nothing with their account they may as well be deleted. \
 **AJdG User Cleaner** works on a daily schedule to check and delete unused accounts that registered 2 weeks before. This means that the new registrant has 2 weeks to do something with their account. Doing something means; post a comment, create a page or create a blogpost.
 
@@ -20,8 +21,19 @@ Accounts are not placed in a trash bin. Deleting of accounts is permanent.
 This plugin has no settings and works quietly in the background.
 
 ## Installation
+
 1. Navigate to your WordPress or ClassicPress dashboard.
 2. Navigate to the Plugins page and click 'Add New'.
 3. Search for 'Arnan' or 'AJdG User Cleaner' in the plugin search
 4. Click install on the 'AJdG User Cleaner' plugin.
 5. Once installed, activate the plugin and you're ready to go.
+
+## GooseUp compatible
+
+AJdG User Cleaner is compatible with the GooseUp Update System.  
+Find out more and [download the plugin](https://ajdg.solutions/product/gooseup/) from my website.
+
+## Is AJdG User Cleaner useful for you?
+
+If you find AJdG User Cleaner useful and want to help out, please consider a small [token of thanks](https://www.arnan.me/donate/)!  
+Your donations will help as motivation. Thank you for your support!  
